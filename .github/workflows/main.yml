@@ -25,4 +25,4 @@ jobs:
             --source test \
             --auth-mode key \
             --account-key ${{ secrets.AZURE_STORAGE_KEY }}
-            --overwrite true
+            --overwrite 'true'
