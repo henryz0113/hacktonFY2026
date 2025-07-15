@@ -22,6 +22,6 @@ jobs:
           az storage blob upload-batch \
             --account-name githubstorage001 \
             --destination '$web' \
-            --source ./hacktonFY2026/test \
+            --source ./test \
             --auth-mode key \
             --account-key ${{ secrets.AZURE_STORAGE_KEY }}
