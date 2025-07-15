@@ -20,8 +20,8 @@ jobs:
         azcliversion: latest
         inlineScript: |
           az storage blob upload-batch \
-            --account-name githubstorage001  \
-            --destination 'database' \
-            --source ./\
+            --account-name githubstorage001 \
+            --destination '$web' \
+            --source ./hacktonFY2026 \
             --auth-mode key \
             --account-key ${{ secrets.AZURE_STORAGE_KEY }}
