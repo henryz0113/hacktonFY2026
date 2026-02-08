@@ -14,8 +14,8 @@ variables:
   serviceConnection: 'terraform-basic-testing-azure-connection'
   azureLocation: 'westeurope'
   # Terraform settings
-  terraformWorkingDirectory: '$(System.DefaultWorkingDirectory)/samples/integration-testing/src'
-  terraformVersion: '0.12.25'
+  terraformWorkingDirectory: '$(System.DefaultWorkingDirectory)/pipeline'
+  terraformVersion: '1.14.4'
 
 stages:
   - stage: TerraformContinuousIntegration
@@ -30,7 +30,7 @@ stages:
       - bash: $(terraformWorkingDirectory)/checkov.sh $(terraformWorkingDirectory)
         displayName: Checkov Static Code Analysis
       # Step 2: install Terraform on the Azure Pipelines agent
-      - task: JasonBJohnson.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-cli.TerraformInstaller@0
+      - task: JasonBJohnson.azure-pipelines-tasks-terraform.azure-pipelines-tasks-terraform-cli.TerraformInstaller@2
         displayName: 'Install Terraform'
         inputs:
           terraformVersion: $(terraformVersion)
